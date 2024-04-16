@@ -1,0 +1,3 @@
+In python you can iterate over a list of items using a for loop
+in python you can use classes to present real life objects in code
+In python you can store a dictionary inside another dictionary
