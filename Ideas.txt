@@ -1,7 +1,0 @@
-Ideas:
-
-1. Program where you input a task you have to do, then the date until the task has to be done. The program should show the tasks you have to do until this week has ended, and the tasks have to numbered.
-When a task has been done it should be marked as done.
-
-2. Sea battle game
-3. Text turn based fighting game
