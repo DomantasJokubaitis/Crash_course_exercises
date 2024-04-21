@@ -43,15 +43,16 @@ for line in reader:
 
 plt.style.use("dark_background")
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize = (18, 8))
 
 ax = plt.gca()                       # Gets current axis
 xaxis = dates.date2num(dates_str)    # Converts to maplotlib format
 hfmt = dates.DateFormatter('%m\n%d') # Formats date line mm-dd
 ax.xaxis.set_major_formatter(hfmt)   # Axis uses newly formatted dates
+ax.xaxis.set_major_locator(dates.MonthLocator(interval=1)) # Shows dates in the plot from the first day of the month
 
-plt.xlabel('Date')
-plt.ylabel('Temperature, F')
+plt.xlabel('Date', fontsize = 14)
+plt.ylabel('Temperature, F', fontsize = 12)
 
 ax.plot(xaxis, temps_2020, color="red")
 ax.plot(xaxis, temps_2000, color="yellow")
