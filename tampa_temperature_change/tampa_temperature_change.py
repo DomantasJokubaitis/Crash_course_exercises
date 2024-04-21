@@ -5,7 +5,7 @@ from datetime import datetime as dt
 import csv
 from pathlib import Path
 
-path = Path("C:/Users/doman/Desktop/Crash_course_exercises/weather_data/3666826.csv")
+path = Path("tampa_temperature_change/3666826.csv")
 lines = path.read_text().splitlines()
 
 reader = csv.reader(lines)
@@ -57,7 +57,7 @@ ax.xaxis.set_major_formatter(hfmt)
 print(xaxis)
 
 plt.xlabel('Date')
-plt.ylabel('Value')
+plt.ylabel('Temperature, F')
 
 ax.plot(xaxis, temps_2020, color="red")
 ax.plot(xaxis, temps_2000, color="yellow")
