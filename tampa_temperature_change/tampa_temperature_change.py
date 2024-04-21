@@ -1,4 +1,6 @@
-#show temperature differences in Tampa between 1980-2000-2020
+
+
+# Attempt to show temperature differences in Tampa in years 1980, 2000 and 2020.
 
 from matplotlib import pyplot as plt, dates
 from datetime import datetime as dt
@@ -6,21 +8,11 @@ import csv
 from pathlib import Path
 
 path = Path("tampa_temperature_change/3666826.csv")
+
 lines = path.read_text().splitlines()
-
 reader = csv.reader(lines)
-header = next(reader)
 
-
-#for title in header:
-    #print(f"{header.index(title)} {title}")
-
-
-
-dates_str = []
-temps_1980 = []
-temps_2000 = []
-temps_2020 = []
+dates_str, temps_1980, temps_2000, temps_2020 = [], [], [], []
 
 for line in reader:
     try:
@@ -44,17 +36,19 @@ for line in reader:
         print("skipping...")
         continue
 
+    except FileNotFoundError:
+        print("File doesn't exist!")
+        break
+
 
 plt.style.use("dark_background")
 
 fig, ax = plt.subplots()
 
-ax = plt.gca()
-xaxis = dates.date2num(dates_str)    # Convert to maplotlib format
-hfmt = dates.DateFormatter('%m\n%d')
-ax.xaxis.set_major_formatter(hfmt)
-
-print(xaxis)
+ax = plt.gca()                       # Gets current axis
+xaxis = dates.date2num(dates_str)    # Converts to maplotlib format
+hfmt = dates.DateFormatter('%m\n%d') # Formats date line mm-dd
+ax.xaxis.set_major_formatter(hfmt)   # Axis uses newly formatted dates
 
 plt.xlabel('Date')
 plt.ylabel('Temperature, F')
@@ -62,8 +56,9 @@ plt.ylabel('Temperature, F')
 ax.plot(xaxis, temps_2020, color="red")
 ax.plot(xaxis, temps_2000, color="yellow")
 ax.plot(xaxis, temps_1980, color="green")
-plt.tight_layout()
-fig.autofmt_xdate()
+
+ax.set_aspect(1.3)
+#fig.autofmt_xdate() if you want the dates to be slightly tilted for readability purposes
 
 plt.show()
 
