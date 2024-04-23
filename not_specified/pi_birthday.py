@@ -9,8 +9,9 @@ for line in lines:
     pi_string += line.strip()
 
 
-x = input("ddmmyy")
+x = input("Input your birthday date as DDMMYY: ")
 if x in pi_string:
-    print("Congrats")
+    print("Congrats, your date is in pi! ")
+    print(f"Starting at index {pi_string.find(x)}")
 else:
     print("Womp womp")
