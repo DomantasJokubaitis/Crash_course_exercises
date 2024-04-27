@@ -6,7 +6,13 @@ url += "?q=language:python+sort:stars"
 headers = {"Accept": "application/vnd.github.v3+json"}
 
 r = requests.get(url, headers = headers)
-print(f"Status code: {r.status_code}")
+
+def status():
+    status = r.status_code
+    print(f"Status code: {status}")
+    return status
+
+status()
 
 response_dict = r.json()
 
