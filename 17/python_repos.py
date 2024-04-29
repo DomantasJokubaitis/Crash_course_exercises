@@ -41,7 +41,8 @@ for repo_dict in repo_dicts:
     stargazers.append(repo_dict["stargazers_count"])
 
 labels = {"x":"Repository", "y":"Star count"}
+title = "GitHub stars"
 
-fig = px.bar(x = names, y = stargazers, title = "GitHub stars", labels=labels)
+fig = px.bar(x = names, y = stargazers, title = title, labels=labels)
 
 fig.show()
