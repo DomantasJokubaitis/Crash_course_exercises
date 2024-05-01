@@ -38,7 +38,7 @@ for line in reader:
         break
 
 
-plt.style.use("dark_background")
+plt.style.use("seaborn-v0_8-pastel")
 
 fig, ax = plt.subplots(figsize = (18, 8))
 
@@ -52,11 +52,13 @@ plt.xlabel('Date', fontsize = 14)
 plt.ylabel('Temperature, F', fontsize = 12)
 plt.title("Temperature change 1980-2020 in Tampa, FL", fontsize = 16)
 
-ax.plot(xaxis, temps_2020, color="red")
-ax.plot(xaxis, temps_2000, color="yellow")
-ax.plot(xaxis, temps_1980, color="green")
+ax.plot(xaxis, temps_2020, color="black", label=2020)
+ax.plot(xaxis, temps_2000, color="red", label = 2000)
+ax.plot(xaxis, temps_1980, color="green", label = 1980)
 
 ax.set_aspect(1.3)
+ax.legend()
+plt.grid(True)
 #fig.autofmt_xdate() if you want the dates to be slightly tilted for readability purposes
 
 plt.show()
