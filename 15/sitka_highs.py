@@ -26,12 +26,10 @@ for row in reader:
     dates.append(date)
 
 
-
 number = 0
 
 for item in highs:
     number += 1
-
 
 print(dates)
 

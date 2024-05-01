@@ -1,9 +1,6 @@
-
-
 # Attempt to show temperature differences in Tampa in years 1980, 2000 and 2020.
 
 from matplotlib import pyplot as plt, dates
-from datetime import datetime as dt
 import csv
 from pathlib import Path
 
@@ -23,17 +20,17 @@ for line in reader:
             temps_2020.append(int(temp))
             dates_str.append(date)
 
-        elif "1980" in date:
-            temps_1980.append(int(temp))
-
         elif "2000" in date:
             temps_2000.append(int(temp))
+
+        elif "1980" in date:
+            temps_1980.append(int(temp))
 
         else:
             continue
 
     except ValueError:
-        print("skipping...")
+        print("Skipping...")
         continue
 
     except FileNotFoundError:
@@ -53,6 +50,7 @@ ax.xaxis.set_major_locator(dates.MonthLocator(interval=1)) # Shows dates in the 
 
 plt.xlabel('Date', fontsize = 14)
 plt.ylabel('Temperature, F', fontsize = 12)
+plt.title("Temperature change 1980-2020 in Tampa, FL", fontsize = 16)
 
 ax.plot(xaxis, temps_2020, color="red")
 ax.plot(xaxis, temps_2000, color="yellow")
