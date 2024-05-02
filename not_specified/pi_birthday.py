@@ -1,11 +1,10 @@
 from pathlib import Path
 
 path = Path("text_files/one-million.txt")
-contents = path.read_text()
-lines = contents.splitlines()
+contents = path.read_text().splitlines()
 pi_string = ""
 
-for line in lines:
+for line in contents:
     pi_string += line.strip()
 
 
