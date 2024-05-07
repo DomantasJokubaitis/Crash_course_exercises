@@ -13,4 +13,4 @@ if x in pi_string:
     print("Congrats, your date is in pi! ")
     print(f"Starting at index {pi_string.find(x)}")
 else:
-    print("Womp womp")
+    print("Your birthday isn't in the first million numbers of pi.")
